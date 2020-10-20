@@ -14,6 +14,7 @@ cache:
 
 install:
   - npm install
+  - npm install -g tsc
 
 script:
   - npm run build --prod --aot
