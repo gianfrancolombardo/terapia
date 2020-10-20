@@ -8,9 +8,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "clean": "npx del dist",
-    "prebuild": "npm run clean",
-    "build:prod": "set ELEVENTY_ENV=prod npx eleventy",
     "predeploy": "npm run build:prod",
     "deploy": "ng build | firebase deploy"
   },
