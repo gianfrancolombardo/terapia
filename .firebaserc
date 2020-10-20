@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "terapia-12c4b"
+  },
+  "targets": {
+    "terapia-12c4b": {
+      "hosting": {
+        "landing01": [
+          "terapia-12c4b"
+        ]
+      }
+    }
   }
 }
