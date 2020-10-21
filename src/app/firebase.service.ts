@@ -1,18 +1,24 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment'
-
+import { environment } from '../environments/environment';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Suscriber } from './suscription.model';
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  constructor() { }
+  constructor(public afs: AngularFirestore) { }
 
-  public notify(data){
-    return fetch(environment.functions.notify, {
-        body: JSON.stringify(data),
-        method: 'POST',
-        mode: 'no-cors'
-    })
+  newSuscriber(data) {
+    console.log(data);
+    const subscriberRef: AngularFirestoreDocument<any> = this.afs.doc(`landing/clients/subscribers/${data.email}`);
+    const subscriberData: Suscriber = {
+      email: data.email,
+      name: data.name,
+      type: data.type
+    };
+    return subscriberRef.set(subscriberData, {
+      merge: true
+    });
   }
 }

@@ -1,12 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingClientComponent } from './landing-client/landing-client.component';
 import { LandingProfessionalComponent } from './landing-professional/landing-professional.component';
 
+
+
+/* Firebase */
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+/* end Firebase */
+/* Environment */
+
+import { environment } from '../environments/environment';
+import { FirebaseService } from './firebase.service';
+
+/* end Environment */
 
 @NgModule({
   declarations: [
@@ -17,10 +30,14 @@ import { LandingProfessionalComponent } from './landing-professional/landing-pro
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, 
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase_config),
+    AngularFireModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
