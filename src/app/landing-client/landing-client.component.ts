@@ -46,6 +46,7 @@ export class LandingClientComponent implements OnInit {
         this.form_submitted = false;
         this.form_cleaned = false;
         this.form_notify.reset();
+        this.firebase.sendmail(this.form_notify.value);
       }).catch(err => {
         this.form_result = false;
         console.log(err);
