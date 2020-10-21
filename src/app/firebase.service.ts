@@ -33,6 +33,7 @@ export class FirebaseService {
   }
 
   sendmail(data) {
+    console.log(data)
     return this.afs.collection('mail').add({
       to: data.email,
       template: {
