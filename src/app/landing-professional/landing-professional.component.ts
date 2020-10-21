@@ -41,11 +41,12 @@ export class LandingProfessionalComponent implements OnInit {
     this.form_submitted = this.form_sending = true;
     if (this.form_notify.valid) {
       this.firebase.newSuscriber(this.form_notify.value).then(res => {
+        this.firebase.sendmail(this.form_notify.value);
         this.form_result = true;
         this.form_submitted = false;
         this.form_cleaned = false;
         this.form_notify.reset();
-        this.firebase.sendmail(this.form_notify.value);
+
       }).catch(err => {
         this.form_result = false;
         console.log(err);
