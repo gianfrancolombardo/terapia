@@ -5,6 +5,7 @@ import * as AOS from 'aos';
 import { FirebaseService } from '../firebase.service';
 import { DOCUMENT } from '@angular/common';
 import { PageScrollService } from 'ngx-page-scroll-core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-client',
@@ -13,10 +14,15 @@ import { PageScrollService } from 'ngx-page-scroll-core';
 })
 export class LandingClientComponent implements OnInit {
 
+  // tslint:disable-next-line: variable-name
   form_submitted = false;
+  // tslint:disable-next-line: variable-name
   form_sending = false;
+  // tslint:disable-next-line: variable-name
   form_notify: FormGroup;
+  // tslint:disable-next-line: variable-name
   form_result = null;
+  // tslint:disable-next-line: variable-name
   form_cleaned = false;
 
 
@@ -24,6 +30,7 @@ export class LandingClientComponent implements OnInit {
     private formBuilder: FormBuilder,
     private firebase: FirebaseService,
     private pageScrollService: PageScrollService,
+    private router: Router,
     @Inject(DOCUMENT) private document: any) {
   }
 
@@ -47,6 +54,7 @@ export class LandingClientComponent implements OnInit {
     if (this.form_notify.valid) {
       this.firebase.newSuscriber(this.form_notify.value).then(res => {
         this.firebase.sendmail(this.form_notify.value);
+        this.firebase.AnalyticsCustomEvents('notifyForm', 'clients');
         this.form_result = true;
         this.form_submitted = false;
         this.form_cleaned = false;
@@ -68,5 +76,10 @@ export class LandingClientComponent implements OnInit {
   Analytics(button: string, landing: string): void
   {
     this.firebase.AnalyticsCustomEvents(button, landing);
+  }
+  gotoProfessionalLanding()
+  {
+    this.firebase.AnalyticsCustomEvents('gotoProfessional', 'client');
+    this.router.navigate(['soy-psicologo']);
   }
 }

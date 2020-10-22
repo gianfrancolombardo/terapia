@@ -48,7 +48,8 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
   providers: [FirebaseService, ScreenTrackingService, UserTrackingService, 
     { provide: CONFIG, useValue: {
       DEBUG_MODE: true
-    } }],
+    } },
+    { provide: DEBUG_MODE, useValue: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

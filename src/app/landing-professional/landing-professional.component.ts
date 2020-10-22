@@ -42,6 +42,7 @@ export class LandingProfessionalComponent implements OnInit {
     if (this.form_notify.valid) {
       this.firebase.newSuscriber(this.form_notify.value).then(res => {
         this.firebase.sendmail(this.form_notify.value);
+        this.firebase.AnalyticsCustomEvents('notifyForm', 'professional');
         this.form_result = true;
         this.form_submitted = false;
         this.form_cleaned = false;
