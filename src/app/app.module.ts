@@ -41,7 +41,10 @@ import { FirebaseService } from './firebase.service';
     AngularFirestoreModule,
     AngularFireAnalyticsModule
   ],
-  providers: [FirebaseService, ScreenTrackingService, UserTrackingService],
+  providers: [FirebaseService, ScreenTrackingService, UserTrackingService, 
+    { provide: CONFIG, useValue: {
+      DEBUG_MODE: true
+    } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
