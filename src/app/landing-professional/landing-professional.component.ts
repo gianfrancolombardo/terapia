@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as AOS from 'aos';
 import { FirebaseService } from '../firebase.service';
-
+import { PageScrollService } from 'ngx-page-scroll-core';
 @Component({
   selector: 'app-landing-professional',
   templateUrl: './landing-professional.component.html',
@@ -60,5 +60,8 @@ export class LandingProfessionalComponent implements OnInit {
     }
 
   }
-
+  Analytics(button: string, landing: string): void
+  {
+    this.firebase.AnalyticsCustomEvents(button, landing);
+  }
 }

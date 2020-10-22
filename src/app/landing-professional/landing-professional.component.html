@@ -7,7 +7,7 @@
       </a>
 
       <div class="d-flex align-items-center order-lg-3">
-        <a href="/soy-psicologo/#notifyme" class="btn btn-primary ml-lg-4 mr-3 mr-md-4 mr-lg-0 d-none d-sm-block order-lg-3">Quiero ser
+        <a pageScroll href="/soy-psicologo/#notifyme" (pageScrollFinish)="Analytics('notifyme','professional')" class="btn btn-primary ml-lg-4 mr-3 mr-md-4 mr-lg-0 d-none d-sm-block order-lg-3">Quiero ser
           parte</a>
         <button aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
           data-target=".navbar-collapse" data-toggle="collapse" type="button">
@@ -34,7 +34,7 @@
         <h1 class="display-3"><mark data-aos="highlight-text" data-aos-delay="200">Revolución</mark> en psicoterapia
         </h1>
         <p class="lead">Da terapia online sin preocuparte por nada. Nos encargamos de todo</p>
-        <a href="/soy-psicologo/#beneficios" class="btn btn-lg btn-primary">¿Qué beneficios tengo?</a>
+        <a pageScroll href="/soy-psicologo/#beneficios" (pageScrollFinish)="Analytics('benefits','professional')"  class="btn btn-lg btn-primary">¿Qué beneficios tengo?</a>
       </div>
       <div class="col" data-aos="fade-left" data-aos-delay="250">
         <img src="assets/img/woman_working_free.jpg" alt="Feel free" class="img-fluid rounded shadow-lg">
