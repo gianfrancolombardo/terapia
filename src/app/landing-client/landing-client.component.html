@@ -10,7 +10,7 @@
 
         <!-- Main buttom -->
         <div class="d-flex align-items-center order-lg-3">
-          <a href="#notifyme" class="btn btn-primary ml-lg-4 mr-3 mr-md-4 mr-lg-0 d-none d-sm-block order-lg-3">Quiero cuidarme</a>
+          <a pageScroll href="#notifyme" (pageScrollFinish)="scrollTONotify($event)" class="btn btn-primary ml-lg-4 mr-3 mr-md-4 mr-lg-0 d-none d-sm-block order-lg-3">Quiero cuidarme</a>
           <button aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target=".navbar-collapse" data-toggle="collapse" type="button">
             <img alt="Navbar Toggler Open Icon" class="navbar-toggler-open icon icon-sm" data-inject-svg src="assets/icons/icon-menu.svg">
             <img alt="Navbar Toggler Close Icon" class="navbar-toggler-close icon icon-sm" data-inject-svg src="assets/icons/icon-x.svg">

@@ -21,6 +21,8 @@ import { AngularFireAnalyticsModule, CONFIG, DEBUG_MODE, ScreenTrackingService, 
 
 import { environment } from '../environments/environment';
 import { FirebaseService } from './firebase.service';
+import { NgxPageScrollModule } from 'ngx-page-scroll';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 
 /* end Environment */
 
@@ -39,7 +41,9 @@ import { FirebaseService } from './firebase.service';
     AngularFireModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireAnalyticsModule
+    AngularFireAnalyticsModule,
+    NgxPageScrollModule,
+    NgxPageScrollCoreModule
   ],
   providers: [FirebaseService, ScreenTrackingService, UserTrackingService, 
     { provide: CONFIG, useValue: {

@@ -1,8 +1,10 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as AOS from 'aos';
 import { FirebaseService } from '../firebase.service';
+import { DOCUMENT } from '@angular/common';
+import { PageScrollService } from 'ngx-page-scroll-core';
 
 @Component({
   selector: 'app-landing-client',
@@ -20,7 +22,9 @@ export class LandingClientComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private firebase: FirebaseService) {
+    private firebase: FirebaseService,
+    private pageScrollService: PageScrollService,
+    @Inject(DOCUMENT) private document: any) {
   }
 
   ngOnInit(): void {
@@ -59,6 +63,11 @@ export class LandingClientComponent implements OnInit {
       this.form_cleaned = true;
     }
 
+  }
+
+  scrollTONotify(event: Event): void
+  {
+    this.firebase.AnalyticsNotifyMe();
   }
 
 }

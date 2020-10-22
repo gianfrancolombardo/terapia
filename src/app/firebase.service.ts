@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Suscriber } from './suscription.model';
+import { AngularFireAnalytics } from '@angular/fire/analytics';
+import { analytics } from 'firebase';
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  constructor(public afs: AngularFirestore) { }
+  constructor(public afs: AngularFirestore, public analytics: AngularFireAnalytics) { }
 
   newSuscriber(data) {
     console.log(data);
@@ -33,7 +35,6 @@ export class FirebaseService {
   }
 
   sendmail(data) {
-    console.log(data)
     return this.afs.collection('mail').add({
       to: data.email,
       template: {
@@ -44,5 +45,8 @@ export class FirebaseService {
         }
       }
     });
+  }
+  AnalyticsNotifyMe(){
+    this.analytics.logEvent('notifyme', {button: 'click'});
   }
 }
