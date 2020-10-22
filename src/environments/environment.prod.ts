@@ -7,7 +7,8 @@ export const environment = {
     projectId: "terapia-12c4b",
     storageBucket: "terapia-12c4b.appspot.com",
     messagingSenderId: "551689411523",
-    appId: "1:551689411523:web:02abeea204782a485d3b76"
+    appId: "1:551689411523:web:02abeea204782a485d3b76",
+    measurementId: "G-XK47D8XNL7"
   },
   functions: {
     notify: 'https://us-central1-terapia-12c4b.cloudfunctions.net/new_notify'
