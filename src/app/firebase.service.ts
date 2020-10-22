@@ -46,13 +46,7 @@ export class FirebaseService {
       }
     });
   }
-  AnalyticsNotifyMe(){
-    this.analytics.logEvent('notifyme', {landing: 'clients'});
-  }
-  AnalyticsFeatures(){
-    this.analytics.logEvent('features', {landing: 'clients'});
-  }
   AnalyticsCustomEvents(button, landing){
-    this.analytics.logEvent('features', {landing: 'clients'});
+    this.analytics.logEvent(button, {landing});
   }
 }
