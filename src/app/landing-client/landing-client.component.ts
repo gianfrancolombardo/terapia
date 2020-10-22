@@ -69,5 +69,7 @@ export class LandingClientComponent implements OnInit {
   {
     this.firebase.AnalyticsNotifyMe();
   }
-
+  scrollTOFeatures(event: Event): void {
+    this.firebase.AnalyticsFeatures();
+  }
 }

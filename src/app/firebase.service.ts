@@ -49,4 +49,7 @@ export class FirebaseService {
   AnalyticsNotifyMe(){
     this.analytics.logEvent('notifyme', {button: 'click'});
   }
+  AnalyticsFeatures(){
+    this.analytics.logEvent('features', {button: 'click'});
+  }
 }
