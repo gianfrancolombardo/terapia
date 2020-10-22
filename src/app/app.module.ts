@@ -13,7 +13,10 @@ import { LandingProfessionalComponent } from './landing-professional/landing-pro
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAnalyticsModule, CONFIG, DEBUG_MODE, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
+
 /* end Firebase */
+
 /* Environment */
 
 import { environment } from '../environments/environment';
@@ -35,9 +38,10 @@ import { FirebaseService } from './firebase.service';
     AngularFireModule.initializeApp(environment.firebase_config),
     AngularFireModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAnalyticsModule
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
