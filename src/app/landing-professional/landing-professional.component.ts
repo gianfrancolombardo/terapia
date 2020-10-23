@@ -26,6 +26,7 @@ export class LandingProfessionalComponent implements OnInit {
 
   ngOnInit(): void {
     (this.hjService.lib as any).myBrandNewStaticFn();
+    this.hjService.virtualPageView('professional');
     AOS.init();
     this.buildForm();
   }

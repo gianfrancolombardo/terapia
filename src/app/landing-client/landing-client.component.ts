@@ -34,10 +34,12 @@ export class LandingClientComponent implements OnInit {
     private router: Router,
     @Inject(DOCUMENT) private document: any,
     private hjService: NgxHotjarService) {
+
   }
 
   ngOnInit(): void {
     (this.hjService.lib as any).myBrandNewStaticFn();
+    this.hjService.virtualPageView('client');
     AOS.init();
     this.buildForm();
   }
