@@ -6,6 +6,7 @@ import { FirebaseService } from '../firebase.service';
 import { DOCUMENT } from '@angular/common';
 import { PageScrollService } from 'ngx-page-scroll-core';
 import { Router } from '@angular/router';
+import { NgxHotjarService } from 'ngx-hotjar';
 
 @Component({
   selector: 'app-landing-client',
@@ -31,10 +32,12 @@ export class LandingClientComponent implements OnInit {
     private firebase: FirebaseService,
     private pageScrollService: PageScrollService,
     private router: Router,
-    @Inject(DOCUMENT) private document: any) {
+    @Inject(DOCUMENT) private document: any,
+    private hjService: NgxHotjarService) {
   }
 
   ngOnInit(): void {
+    (this.hjService.lib as any).myBrandNewStaticFn();
     AOS.init();
     this.buildForm();
   }
@@ -55,11 +58,14 @@ export class LandingClientComponent implements OnInit {
       this.firebase.newSuscriber(this.form_notify.value).then(res => {
         this.firebase.sendmail(this.form_notify.value);
         this.firebase.AnalyticsCustomEvents('notifyForm', 'clients');
+        this.hjService.formSubmitSuccessful();
+
         this.form_result = true;
         this.form_submitted = false;
         this.form_cleaned = false;
         this.form_notify.reset();
       }).catch(err => {
+        this.hjService.formSubmitFailed();
         this.form_result = false;
         console.log(err);
       }).finally(() => {
@@ -75,10 +81,12 @@ export class LandingClientComponent implements OnInit {
 
   Analytics(button: string, landing: string): void
   {
+    this.hjService.trigger(button);
     this.firebase.AnalyticsCustomEvents(button, landing);
   }
   gotoProfessionalLanding()
   {
+    this.hjService.trigger('gotToProfessional');
     this.firebase.AnalyticsCustomEvents('gotoProfessional', 'client');
     this.router.navigate(['soy-psicologo']);
   }

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as AOS from 'aos';
 import { FirebaseService } from '../firebase.service';
 import { PageScrollService } from 'ngx-page-scroll-core';
+import { NgxHotjarService } from 'ngx-hotjar';
 @Component({
   selector: 'app-landing-professional',
   templateUrl: './landing-professional.component.html',
@@ -19,10 +20,12 @@ export class LandingProfessionalComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private firebase: FirebaseService) {
+    private firebase: FirebaseService,
+    private hjService: NgxHotjarService) {
   }
 
   ngOnInit(): void {
+    (this.hjService.lib as any).myBrandNewStaticFn();
     AOS.init();
     this.buildForm();
   }
@@ -43,12 +46,14 @@ export class LandingProfessionalComponent implements OnInit {
       this.firebase.newSuscriber(this.form_notify.value).then(res => {
         this.firebase.sendmail(this.form_notify.value);
         this.firebase.AnalyticsCustomEvents('notifyForm', 'professional');
+        this.hjService.formSubmitSuccessful();
         this.form_result = true;
         this.form_submitted = false;
         this.form_cleaned = false;
         this.form_notify.reset();
 
       }).catch(err => {
+        this.hjService.formSubmitFailed();
         this.form_result = false;
         console.log(err);
       }).finally(() => {
@@ -63,6 +68,7 @@ export class LandingProfessionalComponent implements OnInit {
   }
   Analytics(button: string, landing: string): void
   {
+    this.hjService.trigger(button);
     this.firebase.AnalyticsCustomEvents(button, landing);
   }
 }
