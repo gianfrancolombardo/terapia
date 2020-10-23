@@ -23,6 +23,7 @@ import { environment } from '../environments/environment';
 import { FirebaseService } from './firebase.service';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { NgxHotjarModule } from 'ngx-hotjar';
 
 /* end Environment */
 
@@ -43,7 +44,8 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
     NgxPageScrollModule,
-    NgxPageScrollCoreModule
+    NgxPageScrollCoreModule,
+    NgxHotjarModule.forRoot(environment.hotjar.id),
   ],
   providers: [FirebaseService, ScreenTrackingService, UserTrackingService, 
     { provide: CONFIG, useValue: {
