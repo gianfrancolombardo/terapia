@@ -28,9 +28,10 @@
 
   <!-- SVG Injector -->
   <script>
-    window.onload = function() {
+    
+    function init_svg_injector(){
       new SVGInjector().inject(document.querySelectorAll('img[data-inject-svg]'));
-    };
+    }
   </script>
 </body>
 </html>

@@ -4,6 +4,9 @@ import * as AOS from 'aos';
 import { FirebaseService } from '../firebase.service';
 import { PageScrollService } from 'ngx-page-scroll-core';
 import { NgxHotjarService } from 'ngx-hotjar';
+
+declare function init_svg_injector(): any;
+
 @Component({
   selector: 'app-landing-professional',
   templateUrl: './landing-professional.component.html',
@@ -25,6 +28,7 @@ export class LandingProfessionalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    init_svg_injector();
     this.hjService.virtualPageView('professional');
     AOS.init();
     this.buildForm();

@@ -8,6 +8,8 @@ import { PageScrollService } from 'ngx-page-scroll-core';
 import { Router } from '@angular/router';
 import { NgxHotjarService } from 'ngx-hotjar';
 
+declare function init_svg_injector(): any;
+
 @Component({
   selector: 'app-landing-client',
   templateUrl: './landing-client.component.html',
@@ -38,6 +40,7 @@ export class LandingClientComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    init_svg_injector();
     this.hjService.virtualPageView('client');
     AOS.init();
     this.buildForm();
