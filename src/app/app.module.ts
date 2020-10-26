@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import { LandingClientComponent } from './landing-client/landing-client.component';
 import { LandingProfessionalComponent } from './landing-professional/landing-professional.component';
 
-
+/*Services*/
+import { FirebaseService } from './firebase.service';
+/*End Services*/
 
 /* Firebase */
 import { AngularFireModule } from '@angular/fire';
@@ -18,13 +20,21 @@ import { AngularFireAnalyticsModule, CONFIG, DEBUG_MODE, ScreenTrackingService, 
 
 /* Environment */
 import { environment } from '../environments/environment';
-import { FirebaseService } from './firebase.service';
-import { NgxPageScrollModule } from 'ngx-page-scroll';
-import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
-import { NgxHotjarModule } from 'ngx-hotjar';
-import { TabsModule  } from 'ngx-bootstrap/tabs';
 /* End Environment */
 
+/*HOTJAR*/
+import { NgxHotjarModule } from 'ngx-hotjar';
+/*END HOTJAR*/
+
+/*Scroll Effect*/
+import { NgxPageScrollModule } from 'ngx-page-scroll';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+
+/*END Scroll Effect*/
+import { TabsModule  } from 'ngx-bootstrap/tabs';
+/*NGX-Bootstrap*/
+
+/*EDN NGX-Bootstrap*/
 @NgModule({
   declarations: [
     AppComponent,
