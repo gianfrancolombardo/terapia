@@ -106,23 +106,19 @@ export class LandingClientComponent implements OnInit {
     }
     if (type === 'expertos')
     {
-      
       this.expertos = !this.expertos ? true : false ;
       this.firebase.clickFeatures(type,  this.expertos);
     }
     if (type === 'economico')
-    {
-      
+    { 
       this.economico = !this.economico ? true : false ;
       this.firebase.clickFeatures(type, this.economico);
     }
     if (type === 'flexible')
     {
-      
       this.flexible = !this.flexible   ? true : false ;
       this.firebase.clickFeatures(type, this.flexible);
     }
-    
     this.firebase.AnalyticsCustomEvents(type, 'client');
   }
 }
