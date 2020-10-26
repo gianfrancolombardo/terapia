@@ -24,6 +24,7 @@
     "@angular/router": "~9.1.11",
     "aos": "^2.3.4",
     "firebase": "^7.24.0",
+    "ngx-bootstrap": "^6.1.0",
     "ngx-hotjar": "^9.0.2",
     "ngx-page-scroll": "^7.0.3",
     "ngx-page-scroll-core": "^7.0.3",

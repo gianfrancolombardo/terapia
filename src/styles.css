@@ -9608,6 +9608,9 @@ footer {
 .icon.icon-xl {
     height: 6rem;
 }
+.icon.icon-xxl {
+    height: 12rem;
+}
 @media (min-width: 768px) {
     .icon {
         height: 3rem;
@@ -15854,4 +15857,7 @@ pre[class*="language-"] {
 /** Custom **/
 .bg-primary-3 mark {
     background-image: linear-gradient(120deg,rgba(0,155,114,.7) 0,rgba(0,155,114,.7) 100%) ;
-  }
+}
+svg.icon {
+    fill: none !important;
+}
