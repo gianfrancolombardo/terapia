@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Suscriber } from './suscription.model';
 import { AngularFireAnalytics } from '@angular/fire/analytics';
 import { analytics } from 'firebase';
+import { firestore } from 'firebase/app';
 @Injectable({
   providedIn: 'root'
 })
@@ -48,5 +49,12 @@ export class FirebaseService {
   }
   AnalyticsCustomEvents(button, landing){
     this.analytics.logEvent(button, {landing});
+  }
+  clickFeatures(type, status){
+    console.log(status);
+    if (status)
+    {
+      this.afs.collection('click').doc(type).set({value: firestore.FieldValue.increment(1)});
+    }
   }
 }

@@ -28,7 +28,10 @@ export class LandingClientComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   form_cleaned = false;
 
-
+    confidencial = false;
+    expertos = false;
+    flexible = false;
+    economico = false;
   constructor(
     private formBuilder: FormBuilder,
     private firebase: FirebaseService,
@@ -36,6 +39,7 @@ export class LandingClientComponent implements OnInit {
     private router: Router,
     @Inject(DOCUMENT) private document: any,
     private hjService: NgxHotjarService) {
+      init_svg_injector();
 
   }
 
@@ -93,5 +97,28 @@ export class LandingClientComponent implements OnInit {
     this.hjService.trigger('gotToProfessional');
     this.firebase.AnalyticsCustomEvents('gotoProfessional', 'client');
     this.router.navigate(['soy-psicologo']);
+  }
+  likeThis(type){
+    if (type === 'confidencial')
+    {
+      this.confidencial = !this.confidencial ? true : false ;
+      this.firebase.clickFeatures(type, this.confidencial);
+    }
+    if (type === 'expertos')
+    {
+      this.expertos = !this.expertos ? true : false ;
+      this.firebase.clickFeatures(type,  this.expertos);
+    }
+    if (type === 'economico')
+    { 
+      this.economico = !this.economico ? true : false ;
+      this.firebase.clickFeatures(type, this.economico);
+    }
+    if (type === 'flexible')
+    {
+      this.flexible = !this.flexible   ? true : false ;
+      this.firebase.clickFeatures(type, this.flexible);
+    }
+    this.firebase.AnalyticsCustomEvents(type, 'client');
   }
 }

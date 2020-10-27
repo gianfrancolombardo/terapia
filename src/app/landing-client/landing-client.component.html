@@ -82,19 +82,43 @@
         </div>
       </div>
       <div class="row justify-content-center">
-        <div class="col-lg-6 mb-3 mb-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card card-body bg-white align-items-start flex-sm-row h-100">
-            <img src="assets/icons/shield-protected.svg" alt="Confidencial" class="icon bg-primary mb-4 mb-sm-0 svg-primary" data-inject-svg>
-            <div class="ml-sm-3 ml-md-4">
-              <h5>Confidencial</h5>
-              <p>
-                Tanto tus datos como tus sesiones son totalmente confidenciales. Sientente libre y seguro de usarlo.
-              </p>
+        <div class="col-lg-6 mb-3 mb-md-4 " data-aos="fade-up" data-aos-delay="100">
+            <div class="card card-body bg-white align-items-start flex-sm-row h-100 hovereffect">
+              <div class="overlay" *ngIf="!confidencial">
+                <h2 >
+                  Me gusta
+                  <i class="far fa-heart fa-lg ml-2" (click)="likeThis('confidencial')"></i>
+                </h2>
+              </div>
+              <div class="overlay" *ngIf="confidencial">
+                <h2 >
+                  Gracias!
+                  <i class="fas fa-heartbeat fa-lg ml-2" (click)="likeThis('confidencial')"></i>
+                </h2>
+              </div>
+              <img src="assets/icons/shield-protected.svg" alt="Confidencial" class="icon bg-primary mb-4 mb-sm-0 svg-primary" data-inject-svg>
+              <div class="ml-sm-3 ml-md-4">
+                <h5>Confidencial</h5>
+                <p>
+                  Tanto tus datos como tus sesiones son totalmente confidenciales. Sientente libre y seguro de usarlo.
+                </p>
+              </div>
             </div>
-          </div>
         </div>
         <div class="col-lg-6 mb-3 mb-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card card-body bg-white align-items-start flex-sm-row h-100">
+          <div class="card card-body bg-white align-items-start flex-sm-row h-100 hovereffect">
+            <div class="overlay" *ngIf="!expertos">
+              <h2 >
+                Me gusta
+                <i class="far fa-heart fa-lg ml-2" (click)="likeThis('expertos')"></i>
+              </h2>
+            </div>
+            <div class="overlay" *ngIf="expertos">
+              <h2 >
+                Gracias!
+                <i class="fas fa-heartbeat fa-lg ml-2" (click)="likeThis('expertos')"></i>
+              </h2>
+            </div>
             <img src="assets/icons/shield-user.svg" alt="Psicologos expertos" class="icon bg-primary mb-4 mb-sm-0" data-inject-svg>
             <div class="ml-sm-3 ml-md-4">
               <h5>Psicólogos expertos</h5>
@@ -105,7 +129,19 @@
           </div>
         </div>
         <div class="col-lg-6 mb-3 mb-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="card card-body bg-white align-items-start flex-sm-row h-100">
+          <div class="card card-body bg-white align-items-start flex-sm-row h-100 hovereffect">
+            <div class="overlay" *ngIf="!flexible">
+              <h2 >
+                Me gusta
+                <i class="far fa-heart fa-lg ml-2" (click)="likeThis('flexible')"></i>
+              </h2>
+            </div>
+            <div class="overlay" *ngIf="flexible">
+              <h2 >
+                Gracias!
+                <i class="fas fa-heartbeat fa-lg ml-2" (click)="likeThis('flexible')"></i>
+              </h2>
+            </div>
             <img src="assets/icons/smile.svg" alt="Flexible" class="icon bg-primary mb-4 mb-sm-0" data-inject-svg>
             <div class="ml-sm-3 ml-md-4">
               <h5>Flexible</h5>
@@ -116,7 +152,19 @@
           </div>
         </div>
         <div class="col-lg-6 mb-3 mb-md-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="card card-body bg-white align-items-start flex-sm-row h-100">
+          <div class="card card-body bg-white align-items-start flex-sm-row h-100 hovereffect">
+            <div class="overlay" *ngIf="!economico">
+              <h2 >
+                Me gusta
+                <i class="far fa-heart fa-lg ml-2" (click)="likeThis('economico')"></i>
+              </h2>
+            </div>
+            <div class="overlay" *ngIf="economico">
+              <h2 >
+                Gracias!
+                <i class="fas fa-heartbeat fa-lg ml-2" (click)="likeThis('economico')"></i>
+              </h2>
+            </div>
             <img src="assets/icons/wallet.svg" alt="Ahorra" class="icon bg-primary mb-4 mb-sm-0" data-inject-svg>
             <div class="ml-sm-3 ml-md-4">
               <h5>Ahorra</h5>
