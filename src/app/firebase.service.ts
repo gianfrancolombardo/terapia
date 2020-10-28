@@ -37,6 +37,7 @@ export class FirebaseService {
 
   sendmail(data) {
     return this.afs.collection('mail').add({
+      from: 'hola@enoos.io',
       to: data.email,
       template: {
         name: 'welcome',
