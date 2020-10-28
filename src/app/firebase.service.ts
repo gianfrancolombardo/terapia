@@ -54,7 +54,7 @@ export class FirebaseService {
     console.log(status);
     if (status)
     {
-      this.afs.collection('click').doc(type).set({value: firestore.FieldValue.increment(1)});
+      this.afs.collection('click').doc(type).update({value: firestore.FieldValue.increment(1)});
     }
   }
 }
