@@ -29,12 +29,12 @@ import { NgxHotjarModule } from 'ngx-hotjar';
 /*Scroll Effect*/
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
-
 /*END Scroll Effect*/
-import { TabsModule  } from 'ngx-bootstrap/tabs';
-/*NGX-Bootstrap*/
 
+/*NGX-Bootstrap*/
+import { TabsModule  } from 'ngx-bootstrap/tabs';
 /*EDN NGX-Bootstrap*/
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +54,7 @@ import { TabsModule  } from 'ngx-bootstrap/tabs';
     NgxPageScrollModule,
     NgxPageScrollCoreModule,
     NgxHotjarModule.forRoot(environment.hotjar.id),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
   ],
   providers: [FirebaseService, ScreenTrackingService, UserTrackingService, 
     { provide: CONFIG, useValue: {

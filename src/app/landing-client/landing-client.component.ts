@@ -96,7 +96,7 @@ export class LandingClientComponent implements OnInit {
   {
     this.hjService.trigger('gotToProfessional');
     this.firebase.AnalyticsCustomEvents('gotoProfessional', 'client');
-    this.router.navigate(['soy-psicologo']);
+    this.router.navigate(['soy-psicologo']).then(() => window.scrollTo(0, 0));
   }
   likeThis(type){
     if (type === 'confidencial')
