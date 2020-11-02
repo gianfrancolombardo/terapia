@@ -15868,3 +15868,11 @@ svg.svg-withe{
 svg.svg-black{
     fill: #2c3038;
 }
+
+.bg-primary .btn-outline-primary{
+    border-color: #fff;
+}
+
+.bg-primary .btn-outline-primary:hover{
+    border-color: rgba(255,255,255,.7);
+}

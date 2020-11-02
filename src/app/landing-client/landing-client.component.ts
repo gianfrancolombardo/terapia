@@ -32,6 +32,7 @@ export class LandingClientComponent implements OnInit {
     expertos = false;
     flexible = false;
     economico = false;
+    freeminutes = false;
   constructor(
     private formBuilder: FormBuilder,
     private firebase: FirebaseService,
@@ -118,6 +119,11 @@ export class LandingClientComponent implements OnInit {
     {
       this.flexible = !this.flexible   ? true : false ;
       this.firebase.clickFeatures(type, this.flexible);
+    }
+    if (type === 'freeminutes')
+    {
+      this.freeminutes = !this.freeminutes   ? true : false ;
+      this.firebase.clickFeatures(type, this.freeminutes);
     }
     this.firebase.AnalyticsCustomEvents(type, 'client');
   }
