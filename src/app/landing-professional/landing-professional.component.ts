@@ -33,9 +33,6 @@ export class LandingProfessionalComponent implements OnInit {
     this.hjService.virtualPageView('professional');
     AOS.init();
     this.buildForm();
-
-    // Fb event
-    fbq('track', 'PageView', {content_name: 'professional'});
   }
 
   private buildForm(): any {

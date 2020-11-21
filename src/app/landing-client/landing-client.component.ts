@@ -50,9 +50,6 @@ export class LandingClientComponent implements OnInit {
     this.hjService.virtualPageView('client');
     AOS.init();
     this.buildForm();
-
-    // Fb event
-    fbq('track', 'PageView');
   }
 
   private buildForm(): any {
