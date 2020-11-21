@@ -54,7 +54,12 @@ export class LandingProfessionalComponent implements OnInit {
         this.hjService.formSubmitSuccessful();
 
         // Fb event
-        fbq('track', 'CompleteRegistration');
+        fbq('track', 'CompleteRegistration', {
+          value: 0.10,
+          currency: 'USD',
+          content_name: 'professional',
+          status: true
+        });
 
         this.form_result = true;
         this.form_submitted = false;
@@ -65,6 +70,14 @@ export class LandingProfessionalComponent implements OnInit {
         this.hjService.formSubmitFailed();
         this.form_result = false;
         console.log(err);
+
+        // Fb event
+        fbq('track', 'CompleteRegistration', {
+          value: 0.10,
+          currency: 'USD',
+          content_name: 'professional',
+          status: false
+        });
       }).finally(() => {
         this.form_sending = false;
         this.form_cleaned = false;

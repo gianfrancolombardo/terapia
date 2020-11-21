@@ -71,7 +71,12 @@ export class LandingClientComponent implements OnInit {
         this.hjService.formSubmitSuccessful();
 
         // Fb event
-        fbq('track', 'CompleteRegistration', {content_name: 'client'});
+        fbq('track', 'CompleteRegistration', {
+          value: 0.10,
+          currency: 'USD',
+          content_name: 'client',
+          status: true
+        });
 
         this.form_result = true;
         this.form_submitted = false;
@@ -81,6 +86,14 @@ export class LandingClientComponent implements OnInit {
         this.hjService.formSubmitFailed();
         this.form_result = false;
         console.log(err);
+
+        // Fb event
+        fbq('track', 'CompleteRegistration', {
+          value: 0.10,
+          currency: 'USD',
+          content_name: 'client',
+          status: false
+        });
       }).finally(() => {
         this.form_sending = false;
         this.form_cleaned = false;
