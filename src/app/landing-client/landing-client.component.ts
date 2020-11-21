@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { NgxHotjarService } from 'ngx-hotjar';
 
 declare function init_svg_injector(): any;
+declare const fbq: any;
 
 @Component({
   selector: 'app-landing-client',
@@ -49,6 +50,9 @@ export class LandingClientComponent implements OnInit {
     this.hjService.virtualPageView('client');
     AOS.init();
     this.buildForm();
+
+    // Fb event
+    fbq('track', 'PageView');
   }
 
   private buildForm(): any {
@@ -68,6 +72,9 @@ export class LandingClientComponent implements OnInit {
         this.firebase.sendmail(this.form_notify.value);
         this.firebase.AnalyticsCustomEvents('notifyForm', 'clients');
         this.hjService.formSubmitSuccessful();
+
+        // Fb event
+        fbq('track', 'CompleteRegistration', {content_name: 'client'});
 
         this.form_result = true;
         this.form_submitted = false;

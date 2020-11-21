@@ -6,6 +6,7 @@ import { PageScrollService } from 'ngx-page-scroll-core';
 import { NgxHotjarService } from 'ngx-hotjar';
 
 declare function init_svg_injector(): any;
+declare const fbq: any;
 
 @Component({
   selector: 'app-landing-professional',
@@ -32,6 +33,9 @@ export class LandingProfessionalComponent implements OnInit {
     this.hjService.virtualPageView('professional');
     AOS.init();
     this.buildForm();
+
+    // Fb event
+    fbq('track', 'PageView', {content_name: 'professional'});
   }
 
   private buildForm(): any {
@@ -51,6 +55,10 @@ export class LandingProfessionalComponent implements OnInit {
         this.firebase.sendmail(this.form_notify.value);
         this.firebase.AnalyticsCustomEvents('notifyForm', 'professional');
         this.hjService.formSubmitSuccessful();
+
+        // Fb event
+        fbq('track', 'CompleteRegistration');
+
         this.form_result = true;
         this.form_submitted = false;
         this.form_cleaned = false;
