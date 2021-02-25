@@ -33,13 +33,15 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 
 /*NGX-Bootstrap*/
 import { TabsModule  } from 'ngx-bootstrap/tabs';
+import { LandingCouchComponent } from './landing-couch/landing-couch.component';
 /*EDN NGX-Bootstrap*/
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingClientComponent,
-    LandingProfessionalComponent
+    LandingProfessionalComponent,
+    LandingCouchComponent
   ],
   imports: [
     BrowserModule,
